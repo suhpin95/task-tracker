@@ -1,15 +1,10 @@
-import { useState } from "react";
-
-const Tasks = () => {
-     const [tasks, setTasks] = useState ([ 
-        {'id': 1, 'title': 'Title1' , 'description': 'Lorum Impsum'},
-        {'id': 2, 'title': 'Title2' , 'description': 'Lorum Impsum'},
-        {'id': 3, 'title': 'Title3' , 'description': 'Lorum Impsum'},
-     ])
+import Task from "./Task";
+const Tasks = ({ tasks, onDelete }) => {
+    
     return (
         <>
             { tasks.map(task=> (
-                <h3 key= {task.id}>{task.title}</h3>
+                <Task key= {task.id} task = {task} onDelete = { onDelete }/>
             ) ) }
         </>
     )
