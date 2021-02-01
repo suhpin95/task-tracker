@@ -10,7 +10,7 @@ const AddTasks = ({ onAdd }) => {
     if (!title) {
       alert("Please Add Task");
     }
-    onAdd({ title, description, reminder }); 
+    onAdd({ title, description, reminder });
     setDescription("");
     setTitle("");
   };
