@@ -10,7 +10,7 @@ const AddTasks = ({ onAdd }) => {
     if (!title) {
       alert("Please Add Task");
     }
-    onAdd({ title, description, reminder });
+    onAdd({ title, description, reminder }); 
     setDescription("");
     setTitle("");
   };
@@ -43,7 +43,7 @@ const AddTasks = ({ onAdd }) => {
         />
       </div>
 
-      <input type="submit" className="btn btn-block" value="save Task" />
+      <input type="submit" className="btn btn-block" value="Save Task" />
     </form>
   );
 };
