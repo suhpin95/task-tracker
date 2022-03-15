@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const fetchTasks = async () => {
-    let response = await fetch("https://cors-anywhere.herokuapp.com/http://localhost:5000/tasks",{
+    let response = await fetch("http://localhost:3001/tasks",{
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -31,7 +31,7 @@ function App() {
   };
 
   const addTask = async (task) => {
-    const res = await fetch("https://cors-anywhere.herokuapp.com/http://localhost:5000/tasks", {
+    const res = await fetch("http://localhost:3001/tasks", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -42,21 +42,21 @@ function App() {
     setTasks([...tasks, data]);
   };
   const deleteTask = async (id) => {
-    await fetch(`https://cors-anywhere.herokuapp.com/http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:3001/tasks/${id}`, {
       method: "DELETE",
     });
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
   const fetchTask = async (id) => {
-    let response = await fetch(`http://localhost:5000/tasks/${id}`);
+    let response = await fetch(`http://localhost:3001/tasks/${id}`);
     const data = await response.json();
     return data;
   };
   const toggleReminder = async (id) => {
     const taskToToggle = await fetchTask(id);
     const updateTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
-    const res = await fetch(`https://cors-anywhere.herokuapp.com/http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`http://localhost:3001/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
